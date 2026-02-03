@@ -2,10 +2,8 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  // base path should match your repository name if not using a custom domain
-  // Example: '/my-restaurant-app/'
-  // Using './' makes it relative and works in most GitHub Pages setups
-  base: './',
+  // Use the repository name for the base path on GitHub Pages
+  base: '/QD-RESTAURANT/',
   build: {
     outDir: 'dist',
   },
