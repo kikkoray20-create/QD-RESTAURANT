@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # Replace with your default branch name
+    branches: ["main"] # अगर आपकी ब्रांच का नाम 'master' है तो यहाँ 'master' लिखें
 
 permissions:
   contents: read
@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          # हमने 'cache: npm' हटा दिया है ताकि लॉक फाइल न होने पर एरर न आए
           
       - name: Install dependencies
         run: npm install
@@ -29,7 +29,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          API_KEY: ${{ secrets.API_KEY }} # Add your Gemini API Key in GitHub Repo Secrets
+          API_KEY: ${{ secrets.API_KEY }}
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
